@@ -129,13 +129,13 @@ sub Set_userData()
     }
     m.parentScene.dialog.close = true
     m.top.userData = userData
-    base = server + port
-    set_setting()
+'    base = server + port
+'    set_setting()
 end sub
+
 ' set server data.  isolate server + users
 sub Set_serverData()
-    userData = {
-'        email       : m.top.kbdialogEmail.text
+    serverData = {
         server    : m.top.kbdialogServer.text
         port    : m.top.kbdialogPort.text
     }

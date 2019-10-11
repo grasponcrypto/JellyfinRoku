@@ -22,6 +22,16 @@ function API__GetInstance() as Object
     return this
 end function
 
+' Server API Set
+function API__Server(serverData as Object) as Boolean
+    result = true
+
+    print "Setting Server:"
+    print serverData
+    sleep(2000)
+
+    return result
+end function
 
 ' Login API mockup. Actual API call for user logging in should be implemented here.
 ' @param userData [Object] associative array: {email, password}
@@ -158,3 +168,27 @@ function saveToRegistry()
         set_setting("available_users", formatJson(users))
     end if
 end function
+
+'******************************************************
+'Registry Helper Functions
+'******************************************************
+Function RegRead(key,section=invalid)
+If section=invalid section="Default"
+sec=CreateObject("roRegistrySection",section)
+If sec.Exists(key) Return sec.Read(key)
+Return invalid
+End Function
+
+Function RegWrite(key,val,section=invalid)
+If section=invalid section="Default"
+sec=CreateObject("roRegistrySection",section)
+sec.Write(key,val)
+sec.Flush() 'commit it
+End Function
+
+Function RegDelete(key,section=invalid)
+If section=invalid section="Default"
+sec=CreateObject("roRegistrySection",section)
+sec.Delete(key)
+sec.Flush()
+End Function

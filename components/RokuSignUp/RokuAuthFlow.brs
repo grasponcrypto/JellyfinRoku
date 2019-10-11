@@ -129,21 +129,18 @@ sub Set_userData()
     }
     m.parentScene.dialog.close = true
     m.top.userData = userData
-    base = server + port
-    set_setting()
 end sub
+
 ' set server data.  isolate server + users
 sub Set_serverData()
-    userData = {
-'        email       : m.top.kbdialogEmail.text
+    serverData = {
         server    : m.top.kbdialogServer.text
         port    : m.top.kbdialogPort.text
     }
     m.parentScene.dialog.close = true
     m.top.serverData = serverData
-    base = server + port
-
 end sub
+
 ' Jellyfin - set login details
 sub Set_loginData()
     loginData = {
